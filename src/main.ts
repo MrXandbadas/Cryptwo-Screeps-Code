@@ -1,3 +1,4 @@
+import * as Profiler from "utils/Profiler";
 import { ErrorMapper } from "utils/ErrorMapper";
 import "./prototypes/roomorganiser";
 
@@ -5,6 +6,7 @@ import "./prototypes/roomorganiser";
 // This utility uses source maps to get the line numbers and file names of the original, TS source code
 
 const mem: Memory = Memory;
+// global.Profiler = Profiler.init();
 
 export class Main {
   public static go() {
@@ -25,7 +27,7 @@ export class Main {
 
     // delete creeps from memory that are no longer needed
     for (const name in Memory.creeps) {
-      const creep: CreepMemory = Memory.creeps[name];
+      const creep: any = Memory.creeps[name];
       const room: Room = Game.rooms[creep.room];
 
       if (creep.room === room.name) {
