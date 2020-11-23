@@ -18,3 +18,7 @@ declare namespace NodeJS {
     log: any;
   }
 }
+
+interface Room {
+  runlogic(room: string): void;
+}
